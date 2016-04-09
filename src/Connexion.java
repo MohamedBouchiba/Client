@@ -40,7 +40,9 @@ public class Connexion implements Runnable {
 		
 		if(in.readLine().equals("connecte")){
 			
-		System.out.println("Je suis connecté "); 
+		System.out.println("Je suis connecté ");
+		FenetreChat fenChat = new FenetreChat();
+		
 		connect = true;
 		  }
 		

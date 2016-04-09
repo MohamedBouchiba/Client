@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class FenetreChat extends JFrame {
 	
@@ -63,12 +64,18 @@ public class FenetreChat extends JFrame {
 
         jButton1.setText("Envoyé");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
+        	
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
         jButton2.setText("Evoyé un fichier");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jMenu1.setText("Paramètre");
         jMenuBar1.add(jMenu1);
@@ -117,9 +124,27 @@ public class FenetreChat extends JFrame {
         // TODO add your handling code here:
     }                                           
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    	
+    	String message = jTextField1.getText();
+    	jTextArea1.append("\n" +message);
         System.out.println("Salut");
+        
     }                                        
 
+    
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+            "JPG & GIF Images", "jpg", "gif");
+        chooser.setFileFilter(filter);
+        int returnVal = chooser.showOpenDialog(getParent());
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+        	jTextArea1.append( "Clicker ici si vous souhaiter telecharger "+ chooser.getSelectedFile().getName());
+           System.out.println("You chose to open this file: " +
+                chooser.getSelectedFile().getName());
+        }
+    }
 
 }

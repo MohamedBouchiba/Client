@@ -103,11 +103,6 @@ public class Fenetre extends JFrame {
   }                                           
 
   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-      // TODO add your handling code here:
-  }                                        
-
-  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { 
-	  
 	  this.loging = jTextField1.getText();
 	  this.mdp = jTextField2.getText();
 	  
@@ -130,6 +125,11 @@ public class Fenetre extends JFrame {
 		} catch (IOException e) {
 		  System.err.println("Aucun serveur à l'écoute du port "+socket.getLocalPort());
 		}
+  }                                        
+
+  private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) { 
+	  
+
       // TODO add your handling code here:
   }  
   
